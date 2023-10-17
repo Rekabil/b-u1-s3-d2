@@ -19,7 +19,7 @@ public class Evento {
     private TipoEvento tipoEvento;
     private int numeroMassimoParticipati;
 
-    public Evento (String titolo, int dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoParticipati) {
+    public Evento (String titolo, int dataEvento, String descrizione, int numeroMassimoParticipati) {
         this.titolo = titolo;
         this.dataEvento= dataEvento;
         this.descrizione = descrizione;
