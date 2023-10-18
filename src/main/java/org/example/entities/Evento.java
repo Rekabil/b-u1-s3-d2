@@ -2,6 +2,8 @@ package org.example.entities;
 
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.util.Set;
 
 @Entity
 @Table(name = "evento")
@@ -12,14 +14,19 @@ public class Evento {
     private long id;
 
     private String titolo;
-    private int dataEvento;
+    private DateFormat dataEvento;
     private String descrizione;
 
     @Enumerated(EnumType.STRING)
     private TipoEvento tipoEvento;
     private int numeroMassimoParticipati;
 
-    public Evento (String titolo, int dataEvento, String descrizione, int numeroMassimoParticipati) {
+    private Location location;
+
+    private Set<Partecipazione> partecipazioni;
+
+
+    public Evento (String titolo, DateFormat dataEvento, String descrizione, int numeroMassimoParticipati, Location location ) {
         this.titolo = titolo;
         this.dataEvento= dataEvento;
         this.descrizione = descrizione;
@@ -32,7 +39,7 @@ public class Evento {
         return titolo;
     }
 
-    public int getDataEvento() {
+    public DateFormat getDataEvento() {
         return dataEvento;
     }
 
@@ -52,7 +59,7 @@ public class Evento {
         return tipoEvento;
     }
 
-    public void setDataEvento(int dataEvento) {
+    public void setDataEvento(DateFormat dataEvento) {
         this.dataEvento = dataEvento;
     }
 

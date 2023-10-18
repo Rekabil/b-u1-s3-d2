@@ -20,8 +20,8 @@ try {
     EventoDAO eventoDAO = new EventoDAO(em);
     System.out.println("hello world");
 
-    Evento evento = new Evento("Disco", 5 , "Discoteca A parigi" , 20   );
-eventoDAO.save(evento);
+//   Evento evento = new Evento("Disco", 5 , "Discoteca A parigi" , 20   );
+//eventoDAO.save(evento);
 
 
 
