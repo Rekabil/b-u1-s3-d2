@@ -1,10 +1,7 @@
 package org.example;
 
 
-import org.example.entities.Evento;
-import org.example.entities.EventoDAO;
-import org.example.entities.JpaUtils;
-import org.example.entities.TipoEvento;
+import org.example.entities.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -20,8 +17,9 @@ try {
     EventoDAO eventoDAO = new EventoDAO(em);
     System.out.println("hello world");
 
-//   Evento evento = new Evento("Disco", 5 , "Discoteca A parigi" , 20   );
-//eventoDAO.save(evento);
+    Concerto evento = new Concerto("Britnei Spiers" , "16-05-00", " Concetro Britner" , 15 , )
+
+eventoDAO.save(evento);
 
 
 

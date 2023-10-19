@@ -6,7 +6,9 @@ import java.text.DateFormat;
 import java.util.Set;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "evento")
+@DiscriminatorColumn(name = "tipo_evento")
 public class Evento {
 
     @Id
@@ -14,7 +16,7 @@ public class Evento {
     private long id;
 
     private String titolo;
-    private DateFormat dataEvento;
+    private String dataEvento;
     private String descrizione;
 
     @Enumerated(EnumType.STRING)
@@ -26,7 +28,7 @@ public class Evento {
     private Set<Partecipazione> partecipazioni;
 
 
-    public Evento (String titolo, DateFormat dataEvento, String descrizione, int numeroMassimoParticipati, Location location ) {
+    public Evento (String titolo, String dataEvento, String descrizione, int numeroMassimoParticipati, Location location ) {
         this.titolo = titolo;
         this.dataEvento= dataEvento;
         this.descrizione = descrizione;
@@ -39,7 +41,7 @@ public class Evento {
         return titolo;
     }
 
-    public DateFormat getDataEvento() {
+    public String getDataEvento() {
         return dataEvento;
     }
 
@@ -59,7 +61,7 @@ public class Evento {
         return tipoEvento;
     }
 
-    public void setDataEvento(DateFormat dataEvento) {
+    public void setDataEvento(String dataEvento) {
         this.dataEvento = dataEvento;
     }
 

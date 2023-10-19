@@ -2,6 +2,9 @@ package org.example.entities;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class EventoDAO {
     private final EntityManager em;
@@ -38,5 +41,30 @@ public void deleteById(long id) {
         }
 }
 
+public void getConcertiInStreaming(boolean streaming) {
+
+EntityTransaction transaction = em.getTransaction();
+transaction.begin();
+
+    Query query = em.createQuery("SELECT a FROM Concerto a WHERE a.streaming LIKE :streaming ");
+query.setParameter("steaming",  streaming);
+
+ List<Concerto> resultati = query.getResultList();
+
+ System.out.println("Lista Concerti in Streaming: " +resultati);
+}
+
+public void getConcertiPerGenere(Genere genere) {
+
+    EntityTransaction transaction = em.getTransaction();
+    transaction.begin();
+
+    Query query = em.createQuery("SELECT a FROM Concerto a WHERE a.genere LIKE :genere ");
+    query.setParameter("genere",  genere);
+
+    List<Concerto> resultati = query.getResultList();
+
+    System.out.println("Lista Concerti Di Genere " + genere +": " +resultati);
+}
 
 }
